@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const fadeIn = {
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.5, ease: 'easeOut' },
+  transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] },
   viewport: { once: true, amount: 0.2 },
 }
 
@@ -20,8 +20,7 @@ export default function Home() {
 
   return (
     <>
-      <motion.section className="relative isolate" initial={fadeIn.initial} whileInView={fadeIn.withinView} />
-      <section className="relative isolate">
+      <motion.section className="relative isolate" initial={fadeIn.initial} whileInView={fadeIn.whileInView} transition={fadeIn.transition} viewport={fadeIn.viewport}>
         <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-slate-50 to-white" />
 
         <div className="mx-auto flex min-h-[80vh] max-w-6xl flex-col items-center justify-center px-4 text-center">
@@ -52,7 +51,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </section>
+      </motion.section>
       
 
       
